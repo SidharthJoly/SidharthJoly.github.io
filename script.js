@@ -1,3 +1,4 @@
+// create instance of kinet with custom settings
 var kinet = new Kinet({
   acceleration: 0.06,
   friction: 0.20,
@@ -16,4 +17,19 @@ kinet.on('tick', function(instances) {
 document.addEventListener('mousemove', function (event) {
   kinet.animate('x', event.clientX - window.innerWidth/2);
   kinet.animate('y', event.clientY - window.innerHeight/2);
+});
+
+
+
+
+
+
+
+// log
+kinet.on('start', function() {
+  console.log('start');
+});
+
+kinet.on('end', function() {
+  console.log('end');
 });
