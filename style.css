@@ -1,7 +1,7 @@
 #Name{
         position:fixed;
-        top:48%;
-        left:45%;
+        top:30%;
+        left:20%;
         color: #e6d3a7;
         text-align:center;
 }
@@ -27,7 +27,7 @@ html, body {
 }
 
 h1 {
-  font-size: 90px;
+  font-size: 200px;
   margin: 0 auto 10px;
 }
 
