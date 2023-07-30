@@ -11,11 +11,3 @@ document.addEventListener('mousemove', function (event) {
   kinet.animate('x', event.clientX - window.innerWidth/2);
   kinet.animate('y', event.clientY - window.innerHeight/2);
 });
-
-
-kinet.on('start', function() {
-  console.log('start');
-});
-kinet.on('end', function() {
-  console.log('end');
-});
