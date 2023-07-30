@@ -2,7 +2,7 @@
         position:fixed;
         top:48%;
         left:45%;
-        color: #ff6f3c;
+        color: #e6d3a7;
         text-align:center;
 }
 html, body {
@@ -21,7 +21,7 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #155263;
+  background-color: #392f2f;
   text-align: center;
   cursor: default;
 }
@@ -43,7 +43,7 @@ a:hover {
 .circle {
   width: 40px;
   height: 40px;
-  background: linear-gradient(to top left, #0062bE, #00A2FE);
+  background: linear-gradient(to top left, #59a985, #3a7563);
   border-radius: 50%;
   position: absolute;
   top: 50%;
