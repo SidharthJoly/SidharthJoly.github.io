@@ -2,7 +2,7 @@
         position:fixed;
         top:48%;
         left:45%;
-        color:maroon;
+        color: #ff6f3c;
         text-align:center;
 }
 html, body {
@@ -21,7 +21,7 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: gray;
+  background-color: #155263;
   text-align: center;
   cursor: default;
 }
