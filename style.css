@@ -2,11 +2,13 @@ html, body {
   perspective: 800px;
   margin: 0;
   width: 100%;
-  height: 100%;
+  height: 170%;
   overflow: hidden;
   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
 }
-
+#Name{
+        color: #e6d3a7;
+}
 .wrapper {
   width: 100%;
   height: 100%;
