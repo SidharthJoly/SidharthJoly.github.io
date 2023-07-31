@@ -9,7 +9,7 @@ kinet.on('tick', function(instances) {
 });
 document.addEventListener('mousemove', function (event) {
   var mouseX = event.pageX - window.innerWidth/2;
-  var mouseY = event.pageY - window.innerHeight/2 + window.scrollY;
+  var mouseY = event.pageY - window.innerHeight/2 - window.scrollY;
   kinet.animate('x', mouseX);
   kinet.animate('y', mouseY);
 });
