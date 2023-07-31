@@ -7,15 +7,24 @@ var circle = document.getElementById('circle');
 kinet.on('tick', function(instances) {
   circle.style.transform = `translate3d(${ (instances.x.current) }px, ${ (instances.y.current) }px, 0) rotateX(${ (instances.x.velocity/2) }deg) rotateY(${ (instances.y.velocity/2) }deg)`;
 });
+
+function getMousePosition(event) {
+  var rect = circle.getBoundingClientRect();
+  var mouseX = event.clientX - rect.left - rect.width / 2 + window.scrollX;
+  var mouseY = event.clientY - rect.top - rect.height / 2 + window.scrollY;
+  return { x: mouseX, y: mouseY };
+}
+
 document.addEventListener('mousemove', function (event) {
-  var mouseX = event.pageX - window.innerWidth/2;
-  var mouseY = event.pageY - window.innerHeight/2 - window.scrollY;
-  kinet.animate('x', mouseX);
-  kinet.animate('y', mouseY);
+  var mousePosition = getMousePosition(event);
+  kinet.animate('x', mousePosition.x);
+  kinet.animate('y', mousePosition.y);
 });
+
 kinet.on('start', function() {
   console.log('start');
 });
+
 kinet.on('end', function() {
   console.log('end');
 });
