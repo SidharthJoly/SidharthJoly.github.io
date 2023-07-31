@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function getMousePosition(event) {
     var rect = circle.getBoundingClientRect();
-    var mouseX = event.clientX - rect.left - rect.width / 2;
-    var mouseY = event.clientY - rect.top - rect.height / 2 + window.scrollY;
+    var mouseX = event.clientX - rect.left - rect.width;
+    var mouseY = event.clientY - rect.top - rect.height+ window.scrollY;
     return { x: mouseX, y: mouseY };
   }
 
