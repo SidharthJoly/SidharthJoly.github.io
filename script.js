@@ -12,8 +12,9 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   function getMousePosition(event) {
-    var mouseX = event.pageX - window.innerWidth / 2;
-    var mouseY = event.pageY - window.innerHeight / 2 + window.scrollY;
+    var rect = circle.getBoundingClientRect();
+    var mouseX = event.clientX - rect.left - rect.width / 2;
+    var mouseY = event.clientY - rect.top - rect.height / 2 + window.scrollY;
     return { x: mouseX, y: mouseY };
   }
 
