@@ -5,7 +5,7 @@ var kinet = new Kinet({
 });
 var circle = document.getElementById('circle');
 kinet.on('tick', function(instances) {
-  circle.style.transform = `translate3d(${ (instances.x.current) }vw, ${ (instances.y.current) }vh, 0) rotateX(${ (instances.x.velocity/2) }deg) rotateY(${ (instances.y.velocity/2) }deg)`;
+  circle.style.transform = `translate3d(${ (instances.x.current) }px, ${ (instances.y.current) }px, 0) rotateX(${ (instances.x.velocity/2) }deg) rotateY(${ (instances.y.velocity/2) }deg)`;
 });
 document.addEventListener('mousemove', function (event) {
   kinet.animate('x', event.clientX - window.innerWidth/2);
