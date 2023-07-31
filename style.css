@@ -2,9 +2,8 @@ html, body {
   perspective: 800px;
   margin: 0;
   width: 100%;
-  height: 100%;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  height: 170vh;
+  overflow: auto;
   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
 }
 #Name{
