@@ -1,25 +1,29 @@
-// Wait for the DOM to load
 document.addEventListener('DOMContentLoaded', function () {
-  var kinet = new Kinet({
+  const circle = document.getElementById('circle');
+  if (!circle) {
+    console.error('Element with ID "circle" not found.');
+    return;
+  }
+
+  const kinet = new Kinet({
     acceleration: 0.06,
     friction: 0.20,
-    names: ["x", "y"],
+    names: ['x', 'y'],
   });
 
-  var circle = document.getElementById('circle');
   kinet.on('tick', function (instances) {
     circle.style.transform = `translate3d(${instances.x.current}px, ${instances.y.current}px, 0) rotateX(${instances.x.velocity / 2}deg) rotateY(${instances.y.velocity / 2}deg)`;
   });
 
   function getMousePosition(event) {
-    var rect = circle.getBoundingClientRect();
-    var mouseX = event.clientX - rect.left - rect.width;
-    var mouseY = event.clientY - rect.top - rect.height+ window.scrollY;
+    const rect = circle.getBoundingClientRect();
+    const mouseX = event.clientX - rect.left - rect.width / 2;
+    const mouseY = event.clientY - rect.top - rect.height / 2 + window.scrollY;
     return { x: mouseX, y: mouseY };
   }
 
   document.addEventListener('mousemove', function (event) {
-    var mousePosition = getMousePosition(event);
+    const mousePosition = getMousePosition(event);
     kinet.animate('x', mousePosition.x);
     kinet.animate('y', mousePosition.y);
   });
