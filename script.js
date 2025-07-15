@@ -11,18 +11,22 @@ document.addEventListener('DOMContentLoaded', function () {
     names: ['x', 'y'],
   });
 
-  // Update circle's transform based on Kinet animation
   kinet.on('tick', function (instances) {
     circle.style.transform = `translate3d(${instances.x.current}px, ${instances.y.current}px, 0)
       rotateX(${instances.y.velocity / 2}deg)
       rotateY(${instances.x.velocity / 2}deg)`;
   });
 
-  // Animate to the current mouse position
   document.addEventListener('mousemove', function (event) {
-    const mouseX = Math.max(20, Math.min(window.innerWidth - 20, event.clientX - 20));
-    const mouseY = Math.max(20, Math.min(window.innerHeight - 20, event.clientY - 20));
+    const mouseX = event.clientX - 20; // center offset (20 is half of 40px circle)
+    const mouseY = event.clientY - 20;
     kinet.animate('x', mouseX);
     kinet.animate('y', mouseY);
   });
+
+  // Set default position in center
+  const startX = window.innerWidth / 2 - 20;
+  const startY = window.innerHeight / 2 - 20;
+  kinet.set('x', startX);
+  kinet.set('y', startY);
 });
