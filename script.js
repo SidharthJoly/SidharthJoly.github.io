@@ -16,16 +16,16 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   function getMousePosition(event) {
-    // Calculate mouse position relative to the center of the window
-    const mouseX = event.clientX - window.innerWidth / 2;
-    const mouseY = event.clientY - window.innerHeight / 2;
+    // Calculate mouse position relative to viewport, adjusted for circle's size
+    const mouseX = Math.max(20, Math.min(window.innerWidth - 20, event.clientX - 20));
+    const mouseY = Math.max(20, Math.min(window.innerHeight - 20, event.clientY - 20));
+    console.log(`Mouse: (${event.clientX}, ${event.clientY}), Circle: (${mouseX}, ${mouseY})`);
     return { x: mouseX, y: mouseY };
   }
 
-  document.addEventListener('mousemove', function (event) {
+ document.addEventListener('mousemove', function (event) {
     const mousePosition = getMousePosition(event);
-    kinet.animate('x', mousePosition.x);
-    kinet.animate('y', mousePosition.y);
+    circle.style.transform = `translate3d(${mousePosition.x}px, ${mousePosition.y}px, 0)`;
   });
 
   kinet.on('start', function () {
