@@ -16,9 +16,9 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   function getMousePosition(event) {
-    const rect = circle.getBoundingClientRect();
-    const mouseX = event.clientX - rect.left - rect.width / 2;
-    const mouseY = event.clientY - rect.top - rect.height / 2 + window.scrollY;
+    // Calculate mouse position relative to the center of the window
+    const mouseX = event.clientX - window.innerWidth / 2;
+    const mouseY = event.clientY - window.innerHeight / 2;
     return { x: mouseX, y: mouseY };
   }
 
