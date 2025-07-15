@@ -11,28 +11,18 @@ document.addEventListener('DOMContentLoaded', function () {
     names: ['x', 'y'],
   });
 
+  // Update circle's transform based on Kinet animation
   kinet.on('tick', function (instances) {
-    circle.style.transform = `translate3d(${instances.x.current}px, ${instances.y.current}px, 0) rotateX(${instances.x.velocity / 2}deg) rotateY(${instances.y.velocity / 2}deg)`;
+    circle.style.transform = `translate3d(${instances.x.current}px, ${instances.y.current}px, 0)
+      rotateX(${instances.y.velocity / 2}deg)
+      rotateY(${instances.x.velocity / 2}deg)`;
   });
 
-  function getMousePosition(event) {
-    // Calculate mouse position relative to viewport, adjusted for circle's size
+  // Animate to the current mouse position
+  document.addEventListener('mousemove', function (event) {
     const mouseX = Math.max(20, Math.min(window.innerWidth - 20, event.clientX - 20));
     const mouseY = Math.max(20, Math.min(window.innerHeight - 20, event.clientY - 20));
-    console.log(`Mouse: (${event.clientX}, ${event.clientY}), Circle: (${mouseX}, ${mouseY})`);
-    return { x: mouseX, y: mouseY };
-  }
-
- document.addEventListener('mousemove', function (event) {
-    const mousePosition = getMousePosition(event);
-    circle.style.transform = `translate3d(${mousePosition.x}px, ${mousePosition.y}px, 0)`;
-  });
-
-  kinet.on('start', function () {
-    console.log('start');
-  });
-
-  kinet.on('end', function () {
-    console.log('end');
+    kinet.animate('x', mouseX);
+    kinet.animate('y', mouseY);
   });
 });
