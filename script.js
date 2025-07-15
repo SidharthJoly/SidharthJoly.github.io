@@ -11,20 +11,24 @@ document.addEventListener('DOMContentLoaded', function () {
     names: ['x', 'y'],
   });
 
+  // Update circle's position on every animation frame
   kinet.on('tick', function (instances) {
-    circle.style.transform = `translate3d(${instances.x.current}px, ${instances.y.current}px, 0)
+    circle.style.transform = `
+      translate3d(${instances.x.current}px, ${instances.y.current}px, 0)
       rotateX(${instances.y.velocity / 2}deg)
-      rotateY(${instances.x.velocity / 2}deg)`;
+      rotateY(${instances.x.velocity / 2}deg)
+    `;
   });
 
+  // Animate toward mouse on move
   document.addEventListener('mousemove', function (event) {
-    const mouseX = event.clientX - 20; // center offset (20 is half of 40px circle)
+    const mouseX = event.clientX - 20; // Center the circle (40px width)
     const mouseY = event.clientY - 20;
     kinet.animate('x', mouseX);
     kinet.animate('y', mouseY);
   });
 
-  // Set default position in center
+  // Start at center
   const startX = window.innerWidth / 2 - 20;
   const startY = window.innerHeight / 2 - 20;
   kinet.set('x', startX);
