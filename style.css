@@ -2,37 +2,40 @@ html, body {
   perspective: 800px;
   margin: 0;
   width: 100%;
-  height: 180vh;
+  height: 100vh;
   overflow: auto;
-  max-height:180vh;
-  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
 }
-#Name{
-   color: #e6d3a7;
-   font-size: 200px;
+
+#Name {
+  color: #e6d3a7;
+  font-size: 10vw;
 }
+
 .wrapper {
   width: 100%;
   height: 100vh;
   position: relative;
   display: grid;
-  justify-content: center;
-  align-items: center;
   place-content: center;
   background-color: #392f2f;
   text-align: center;
   cursor: default;
 }
+
 .circle {
   width: 40px;
   height: 40px;
   background: linear-gradient(to top left, #59a985, #3a7563);
   border-radius: 50%;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  margin: -20px 0 0 -20px;
   pointer-events: none;
   mix-blend-mode: multiply;
   z-index: 10;
+}
+
+@media (max-width: 768px) {
+  #Name {
+    font-size: 15vw;
+  }
 }
