@@ -30,13 +30,11 @@ html, body {
   height: 40px;
   background: linear-gradient(to top left, #59a985, #3a7563);
   border-radius: 50%;
-  position: fixed; /* changed to fixed so it stays in viewport */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: fixed;
   pointer-events: none;
   mix-blend-mode: multiply;
   z-index: 10;
+  /* Removed transform from here */
 }
 
 @media (max-width: 768px) {
